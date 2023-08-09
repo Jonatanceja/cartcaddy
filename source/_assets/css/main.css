@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@300;400;600;700&family=Rubik:wght@300;400;600;700&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+    scroll-behavior: smooth;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    font-family: 'Krub', sans-serif;
+}
+
+li {
+    font-family: 'Krub', sans-serif;
+}
+
+.swiper-button-next,
+          .swiper-button-prev {
+            color: black !important;
+          }
+
+.swiper-pagination-bullet {
+    background-color: black !important;
+     }

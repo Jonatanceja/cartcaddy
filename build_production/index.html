@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+        <link rel="manifest" href="/assets/images/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="canonical" href="/">
+        <meta name="description" content="Powertugger">
+        <title>TrailerCaddy</title>
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=4d404101be69261bd0ef24753ff7ae22">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+        <script defer src="/assets/build/js/main.js?id=9a3976b92064a906dd1560b2bb4e8ca2"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+        
+    </head>
+    <body class="text-gray-900 font-sans antialiased">
+        <nav
+      class="flex items-center justify-between flex-wrap px-6 py-3 fixed w-full z-10 top-0"
+      x-data="{ isOpen: false }"
+      @keydown.escape="isOpen = false"
+      :class="{ 'shadow-lg bg-gray-100' : isOpen , 'bg-white shadow-md' : !isOpen}"
+    >
+      <!--Logo etc-->
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <a class="text-white no-underline hover:text-white hover:no-underline" href="/">
+          <img class="h-12" src="/assets/images/logo.svg" alt="Powertugger">
+        </a>
+      </div>
+
+      <!--Toggle button (hidden on large screens)-->
+      <button
+        @click="isOpen = !isOpen"
+        type="button"
+        class="block lg:hidden px-2 text-stone-800 hover:text-amber-400 focus:outline-none focus:text-amber-400"
+        :class="{ 'transition transform-180': isOpen }"
+      >
+        <svg
+          class="h-6 w-6 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            x-show="isOpen"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+          />
+          <path
+            x-show="!isOpen"
+            fill-rule="evenodd"
+            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+          />
+        </svg>
+      </button>
+
+      <!--Menu-->
+      <div
+        class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
+        :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
+        @click.away="isOpen = false"
+        x-show.transition="true"
+      >
+        <ul
+          class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center font-semibold"
+        >
+          <li class="mr-3">
+            <a
+              class="inline-block text-stone-800 no-underline hover:text-amber-400 hover:text-underline py-2 px-4"
+              href="#hero"
+              @click="isOpen = false"
+              >Inicio
+            </a>
+          </li>
+          <li class="mr-3">
+            <a
+              class="inline-block text-stone-800 no-underline hover:text-amber-400 hover:text-underline py-2 px-4"
+              href="#about"
+              @click="isOpen = false"
+              >Características
+            </a>
+          </li>
+          <li class="mr-3">
+            <a
+              class="inline-block text-stone-800 no-underline hover:text-amber-400 hover:text-underline py-2 px-4"
+              href="#products"
+              @click="isOpen = false"
+              >Productos
+            </a>
+          </li>
+        </ul>
+        <div class="flex justify-center py-10 md:py-0">
+          <a href="#form">
+            <button class="bg-amber-400 px-5 py-3 rounded-md transform transition text-stone-800 hover:bg-stone-800 hover:text-white font-bold">
+              Conseguir TrailerCaddy
+          </button>
+          </a>
+        </div>
+      </div>
+    </nav>
+        <div class="bg-cover bg-gray-100 relative z-0" style="background-image: url(/assets/images/hero.webp)" id="hero">
+    <div class="bg-stone-800/30 w-full h-full absolute z-10"></div>
+    <div class="flex items-center container mx-auto pt-32 pb-10 md:pb-0 md:pt-0 px-5 min-h-96 md:min-h-screen">
+        <div class="text-white w-full md:w-2/3 space-y-5 z-20">
+            <h1 class="font-bold text-3xl md:text-8xl">Potencia tus operaciones</h1>
+            <p class="md:text-lg font-semibold">Resuelve tus desafíos de manejo de materiales y carga pesada. 
+            ¡Ahorra tiempo, esfuerzo y dinero mientras llevas tu negocio a nuevas alturas!</p>
+            <div class="space-x-3 flex">
+                <a href="about">
+                    <button class="bg-amber-400 px-5 py-3 rounded-md transform transition text-stone-800 hover:bg-stone-800 hover:text-white font-bold">
+                        Aprende como
+                    </button>
+                </a>
+                <a href="https://www.youtube.com/watch?v=BLlFbcR9K8Y&t=3s&ab_channel=DJProducts%2CInc." data-fancybox="gallery">
+                    <button class="bg-stone-800 flex items-center justify-center h-12 w-12 rounded-full transform transition text-amber-400 hover:bg-amber-400 hover:text-stone-800 font-bold text-base hover:scale-110 border border-amber-400">
+                            <i class="lni lni-play animate-ping relative opacity-75"></i>
+                            <i class="lni lni-play absolute"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>  
+</div><section class="" id="about">
+    <div class="container mx-auto py-10 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center px-5">
+        <div class="space-y-5">
+            <div class="flex">
+    <h2 class="text-xs md:text-sm p-2 bg-gray-100 text-stone-800 font-light uppercase border-l-4 border-amber-400 tracking-wider md:flex-none">TrailerCaddy</h2>
+</div>             <h2 class="text-3xl md:text-4xl font-bold tracking-wide">¿Necesitas una solución ágil y eficiente para tus operaciones industriales?</h2>            <p class="prose prose-stone">¡No busques más! Con CartCaddy de Dj Products, lleva el poder de la productividad a tus manos. Nuestros remolcadores y tuggers industriales están diseñados para brindarte un transporte sin complicaciones, permitiéndote mover cargas pesadas de manera rápida y segura. Olvídate de los problemas de logística y optimiza tus procesos con Cart Caddy. ¡Descubre cómo nuestros innovadores equipos pueden transformar tu negocio hoy mismo!</p>        </div>                
+        <div class="relative">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper py-12">
+                                            <div class="swiper-slide space-y-7 text-center">
+                            <p class="text font-bold text-stone-800">Hasta 10,000 lbs</p>
+                            <div>
+                                <img class="mx-auto max-h-56 md:max-h-80" src="/assets/images/5w.png" alt="TrailerCaddy 5W">
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-800">TrailerCaddy 5W</h3>
+                        </div>
+                                            <div class="swiper-slide space-y-7 text-center">
+                            <p class="text font-bold text-stone-800">Hasta 10,000 lbs</p>
+                            <div>
+                                <img class="mx-auto max-h-56 md:max-h-80" src="/assets/images/5wp.png" alt="TrailerCaddy 5WP">
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-800">TrailerCaddy 5WP</h3>
+                        </div>
+                                            <div class="swiper-slide space-y-7 text-center">
+                            <p class="text font-bold text-stone-800">Hasta 1,500 lbs</p>
+                            <div>
+                                <img class="mx-auto max-h-56 md:max-h-80" src="/assets/images/lite.png" alt="TrailerCaddy Lite">
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-800">TrailerCaddy Lite</h3>
+                        </div>
+                                            <div class="swiper-slide space-y-7 text-center">
+                            <p class="text font-bold text-stone-800">Hasta 3,000 lbs</p>
+                            <div>
+                                <img class="mx-auto max-h-56 md:max-h-80" src="/assets/images/shorty.png" alt="TrailerCaddy Shorty">
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-800">TrailerCaddy Shorty</h3>
+                        </div>
+                                    </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <img class="absolute top-0 right-0 h-14" src="assets/images/Cartcaddy.png" alt="TrailerCaddy Logo"> 
+        </div>
+    </div>
+</section><section class="py-5 md:py-10 relative z-0" id="blurbs">
+    <div class="absolute bottom-0 w-full h-1/2 bg-stone-100"></div>
+    <div class="container mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 z-30">
+        <div class="text-center bg-white rounded-md shadow-xl p-10 transform transition hover:bg-stone-800 text-stone-800 hover:text-white hover:scale-105 space-y-2">
+            <span class="text-amber-400 text-3xl"><i class="lni lni-weight"></i></span>
+            <h4 class="text-xl font-bold">Manejo de cargas pesadas</h4>
+            <p>Con su potente motor y diseño ergonómico, permite a los trabajadores mover fácilmente equipos, materiales y productos de hasta 10,000 lbs</p>
+        </div>
+        <div class="text-center bg-white rounded-md shadow-xl p-10 transform transition hover:bg-stone-800 text-stone-800 hover:text-white hover:scale-105 space-y-2">
+            <span class="text-amber-400 text-3xl"><i class="lni lni-cogs"></i></i></span>
+            <h4 class="text-xl font-bold">Optimización de la logística</h4>
+            <p>Al eliminar la necesidad de mover manualmente cargas pesadas, el Cart Caddy agiliza los procesos logísticos en almacenes, fábricas y otros entornos industriales.</p>
+        </div>
+        <div class="text-center bg-white rounded-md shadow-xl p-10 transform transition hover:bg-stone-800 text-stone-800 hover:text-white hover:scale-105 space-y-2">
+            <span class="text-amber-400 text-3xl"><i class="lni lni-direction"></i></span>
+            <h4 class="text-xl font-bold">Flexibilidad y maniobrabilidad</h4>
+            <p>Con su diseño compacto y características de dirección precisa, el Cart Caddy puede maniobrar en espacios reducidos y áreas congestionadas.</p>
+        </div>
+    </div>
+</section><section class="bg-stone-100 py-10 md:py-20" id="products">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 px-5">
+                    <div class="space-y-5">
+                <h5 class="font-bold text-center">Hasta 10,000 lbs</h5>
+                <img class="mx-auto h-44 transition transform hover:scale-105" src="/assets/images/5w.png" alt="TrailerCaddy 5W">
+                <h4 class="text-xl font-bold text-center">TrailerCaddy 5W</h4>
+                <div class="prose prose-sm prose-stone"><ul>
+<li>Mueve carros hasta 10,000 lbs</li>
+<li>Sistema de batería de 36 Voltios 3</li>
+<li>Se conecta rápidamente a cualquier carro</li>
+<li>Sin instalación de brazos de remolque en el carro</li>
+<li>0-3 MPH Hacia adelante/retroceso</li>
+<li>El cargador funciona con 120/220 Outlets</li>
+</ul>
+</div>
+            </div>
+                    <div class="space-y-5">
+                <h5 class="font-bold text-center">Hasta 10,000 lbs</h5>
+                <img class="mx-auto h-44 transition transform hover:scale-105" src="/assets/images/5wp.png" alt="TrailerCaddy 5WP">
+                <h4 class="text-xl font-bold text-center">TrailerCaddy 5WP</h4>
+                <div class="prose prose-sm prose-stone"><ul>
+<li>Mueve carros de hasta 10,000 libras (4.5 toneladas)</li>
+<li>Sistema de 36 voltios con 3 baterías</li>
+<li>Se conecta rápidamente a cualquier carro</li>
+<li>No es necesario instalar barras para remolcar en el carro</li>
+<li>Avance y reversa de 0 a 3 mph (4.8 km/h)</li>
+<li>El cargador funciona con tomacorrientes de 120 y 220 voltios</li>
+</ul>
+</div>
+            </div>
+                    <div class="space-y-5">
+                <h5 class="font-bold text-center">Hasta 1,500 lbs</h5>
+                <img class="mx-auto h-44 transition transform hover:scale-105" src="/assets/images/lite.png" alt="TrailerCaddy Lite">
+                <h4 class="text-xl font-bold text-center">TrailerCaddy Lite</h4>
+                <div class="prose prose-sm prose-stone"><ul>
+<li>Empuja carros hasta 1500 lbs</li>
+<li>Sistema de batería de 24 voltios 2</li>
+<li>Se conecta rápidamente a cualquier carro</li>
+<li>Sin instalación de brazos de remolque en cada carro</li>
+<li>0-3 MPH Hacia adelante/retroceso</li>
+<li>Cargador Funciona con 120/220 Hrz Outlets</li>
+</ul>
+</div>
+            </div>
+                    <div class="space-y-5">
+                <h5 class="font-bold text-center">Hasta 3,000 lbs</h5>
+                <img class="mx-auto h-44 transition transform hover:scale-105" src="/assets/images/shorty.png" alt="TrailerCaddy Shorty">
+                <h4 class="text-xl font-bold text-center">TrailerCaddy Shorty</h4>
+                <div class="prose prose-sm prose-stone"><ul>
+<li>Carros de tracción hasta 3,000 lbs</li>
+<li>Sistema de batería de 36 voltios 3</li>
+<li>Se conecta rápidamente a cualquier carro</li>
+<li>Sin instalación de brazos de remolque en carros</li>
+<li>0-3 MPH Hacia adelante/retroceso</li>
+<li>Cargador Funciona con 120/220 Hrz Outlets</li>
+</ul>
+</div>
+            </div>
+            </div>
+</section><section class="" id="info">
+    <div class="grid md:grid-cols-2 items-center bg-stone-800">
+        <div>
+            <img class="w-full mx-auto" src="/assets/images/trailer.webp" alt="TrailerCaddy">
+        </div>
+        <div class="space-y-5 text-white p-10">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-wide">Una solución eficiente para tus operaciones industriales</h2>                <p>Optimiza tus operaciones industriales con nuestros empujadores y jaladores especializados. Diseñados para brindar una solución eficiente y segura en el manejo de cargas pesadas, nuestros equipos industriales te ofrecen un rendimiento excepcional en entornos de trabajo exigentes.</p>
+        </div>  
+    </div>
+    <div class="grid md:grid-cols-2 items-center bg-amber-400">
+        <div class="space-y-5 p-10">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-wide">Manejo de equipo y suministros médicos</h2>                <p>Nuestros jaladores y empujadores hospitalarios están equipados con características que garantizan la higiene, la facilidad de limpieza y la prevención de contaminación. Estos dispositivos son ideales para mover camillas, carros de suministros, equipos médicos y otros elementos dentro del hospital de manera suave y sin esfuerzo.</p>
+        </div>  
+        <div>
+            <img class="w-full mx-auto" src="/assets/images/trailer.webp" alt="TrailerCaddy">
+        </div>
+    </div>
+</section>
+<section class="py-12 md:py-16 bg-stone-800 px-5 md:px-0 space-y-5" id="form">
+    <div class="container max-w-6xl mx-auto px-5 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+        <div class="space-y-5">
+            <div class="flex">
+    <h2 class="text-xs md:text-sm p-2 bg-gray-100 text-stone-800 font-light uppercase border-l-4 border-amber-400 tracking-wider md:flex-none">TrailerCaddy</h2>
+</div>             <div class="text-white">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-wide">¡Descubre el poder del CartCaddy y lleva tu productividad al siguiente nivel!</h2>            </div>
+            <div class="prose text-white">
+                ¡Solicita una demostración gratuita ahora mismo y comprueba cómo nuestros tuggers industriales pueden resolver tus desafíos logísticos de manera eficiente y segura!
+            </div>
+        </div>
+        <div>
+            <form class="" method="POST" action="/home">
+                <div class="block md:flex md:space-x-5">
+                    <div class="mb-4 w-full">
+                        <label class="block text-stone-200 text-sm font-bold mb-2" for="nombre">
+                          Nombre
+                        </label>
+                        <input class="w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent" id="nombre" name="nombre" type="text" placeholder="Nombre">
+                    </div>
+                    <div class="mb-4 w-full">
+                        <label class="block text-stone-200 text-sm font-bold mb-2" for="correo">
+                          Correo electrónico
+                        </label>
+                        <input class="w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent" id="correo" name="correo" type="email" placeholder="Correo electrónico">
+                    </div>
+                </div>
+                <div class="block md:flex md:space-x-5">
+                    <div class="mb-4 w-full">
+                        <label class="block text-stone-200 text-sm font-bold mb-2" for="telefono">
+                          Teléfono
+                        </label>
+                        <input class="w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent" id="telefono" name="telefono" type="text" placeholder="Teléfono">
+                      </div>
+                      <div class="mb-6 w-full">
+                        <label class="block text-stone-200 text-sm font-bold mb-2" for="empresa">
+                          Empresa
+                        </label>
+                        <input class="w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent" id="empresa" name="empresa" type="text" placeholder="Empresa">
+                      </div>
+                      
+                </div>
+                <div class="block md:flex md:space-x-5">
+                    <div class="mb-4 w-full">
+                        <label class="block text-stone-200 text-sm font-bold mb-2" for="peso">
+                          Peso a mover
+                        </label>
+                        <input class="w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent" id="peso" name="peso" type="number" placeholder="Peso en Kg">
+                      </div>
+                </div>
+                <div class="block md:flex md:space-x-5">
+                  <div class="mb-4 w-full">
+                      <label class="block text-stone-200 text-sm font-bold mb-2">Producto de interés</label>
+                      <div class="relative">
+                          <select class="block appearance-none w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent">
+                              <option disabled selected>Selecciona un producto</option>
+                              <option value="CartCaddy">CartCaddy</option>
+                              <option value="TrailerCaddy">TrailerCaddy</option>
+                              <option value="TruckCaddy">TruckCaddy</option>
+                              <option value="AircraftCaddy">AircraftCaddy</option>
+                              <option value="RailCaddy">RailCaddy</option>
+                              <option value="WagonCaddy">WagonCaddy</option>
+                              <option value="TowFleXX">TowFleXX</option>
+                          </select>
+                          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-stone-600">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                  <path d="M0 0h20v20H0z" fill="none"/>
+                                  <path d="M7 10l5 5 5-5z"/>
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mb-6 w-full">
+                      <label class="block text-stone-200 text-sm font-bold mb-2">Aplicación de uso</label>
+                      <div class="relative">
+                          <select class="block appearance-none w-full border border-stone-200 py-2 px-3 text-stone-200 leading-tight focus:outline-none focus:border-stone-600 bg-transparent">
+                              <option disabled selected>Selecciona una aplicación</option>
+                              <option value="Trailer">Trailer</option>
+                              <option value="Automovil">Automovil</option>
+                              <option value="Aviones">Aviones</option>
+                              <option value="Industrial">Industrial</option>
+                              <option value="Hospitalario">Hospitalario</option>
+                              <option value="Trenes">Trenes</option>
+                          </select>
+                          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-stone-600">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                  <path d="M0 0h20v20H0z" fill="none"/>
+                                  <path d="M7 10l5 5 5-5z"/>
+                              </svg>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              
+                <div class="flex items-center">
+                    <button class="bg-amber-400 px-5 py-3 rounded-md transform transition text-stone-800 hover:bg-stone-500 hover:text-white font-bold" type="submit">
+                        Enviar
+                    </button>
+                </div>
+              </form>
+
+        </div>
+    </div>
+</section>
+        <footer class="bg-black text-white py-5">
+            <div class="container mx-auto flex items-center">
+                <div class="text-center md:text-left w-full md:w-2/3">Todos los derechos reservados PowerTugger 2023</div>
+                <div class="flex justify-center md:justify-end w-full md:w-1/3 space-x-5 text-2xl">
+                    <a class="hover:text-amber-400 transition" href="https://www.facebook.com/powertugger/">
+                        <i class="lni lni-facebook-fill"></i>
+                    </a>
+                    <a class="hover:text-amber-400 transition" href="https://www.instagram.com/powertugger/">
+                        <i class="lni lni-instagram-original"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            // Your custom options
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+      </script>
+    </body>
+</html>
